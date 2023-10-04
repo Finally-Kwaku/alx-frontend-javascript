@@ -49,11 +49,34 @@ interface printTeacherFunction {
   (firstName: string, lastName: string): string;
 }
 
-// Example usage of the printTeacher function
-const fullName = printTeacher("John", "Doe");
-console.log(fullName); // This will print "J. Doe" to the console
+// Define an interface for the constructor
+interface StudentConstructor {
+  firstName: string;
+  lastName: string;
+}
 
-// Additional Example:
-const anotherFullName: printTeacherFunction = (first, last) => printTeacher(first, last);
-console.log(anotherFullName("Alice", "Smith")); // This will print "A. Smith" to the console
+// Define an interface for the StudentClass
+interface StudentClass {
+  workOnHomework(): string;
+  displayName(): string;
+}
+
+// Define the StudentClass
+class Student implements StudentClass {
+  private firstName: string;
+  private lastName: string;
+
+  constructor({ firstName, lastName }: StudentConstructor) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+  }
+
+  workOnHomework(): string {
+    return 'Currently working';
+  }
+
+  displayName(): string {
+    return this.firstName;
+  }
+}
 
