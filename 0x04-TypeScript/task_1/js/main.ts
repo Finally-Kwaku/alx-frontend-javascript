@@ -80,3 +80,6 @@ class Student implements StudentClass {
   }
 }
 
+const student = new Student({ firstName: 'John', lastName: 'Doe' });
+console.log(student.workOnHomework()); // This will print "Currently working"
+console.log(student.displayName()); // This will print "John"
