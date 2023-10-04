@@ -1,11 +1,17 @@
+// Define the Teacher class
 class Teacher {
-  private firstName: string;
-  private lastName: string;
-  private fullTimeEmployee: boolean;
-  private yearsOfExperience?: number;
-  private location: string;
+  firstName: string;
+  lastName: string;
+  fullTimeEmployee: boolean;
+  yearsOfExperience?: number;
+  location: string;
 
-  constructor(firstName: string, lastName: string, fullTimeEmployee: boolean, location: string) {
+  constructor(
+    firstName: string,
+    lastName: string,
+    fullTimeEmployee: boolean,
+    location: string
+  ) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.fullTimeEmployee = fullTimeEmployee;
@@ -28,10 +34,18 @@ class Teacher {
   }
 }
 
-// Example usage:
-const teacher = new Teacher("John", "Doe", true, "Boston");
-teacher.setYearsOfExperience(5);
-teacher.addAttribute("contract", true);
+// Define the Directors interface extending Teacher
+interface Directors extends Teacher {
+  numberOfReports: number;
+}
 
-console.log(teacher);
+// Create an object that implements the Directors interface
+const director1: Directors = {
+  firstName: 'John',
+  lastName: 'Doe',
+  location: 'London',
+  fullTimeEmployee: true,
+  numberOfReports: 17,
+};
 
+console.log(director1);
