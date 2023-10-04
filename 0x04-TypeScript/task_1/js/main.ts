@@ -1,10 +1,9 @@
-// Define the Teacher class
 class Teacher {
-  firstName: string;
-  lastName: string;
-  fullTimeEmployee: boolean;
-  yearsOfExperience?: number;
-  location: string;
+  private firstName: string;
+  private lastName: string;
+  private fullTimeEmployee: boolean;
+  private yearsOfExperience?: number;
+  private location: string;
 
   constructor(
     firstName: string,
@@ -39,13 +38,22 @@ interface Directors extends Teacher {
   numberOfReports: number;
 }
 
-// Create an object that implements the Directors interface
-const director1: Directors = {
-  firstName: 'John',
-  lastName: 'Doe',
-  location: 'London',
-  fullTimeEmployee: true,
-  numberOfReports: 17,
-};
+// Define the printTeacher function
+function printTeacher(firstName: string, lastName: string): string {
+  const firstLetter = firstName.charAt(0); // Get the first letter of firstName
+  return `${firstLetter}. ${lastName}`;
+}
 
-console.log(director1);
+// Define the printTeacherFunction interface
+interface printTeacherFunction {
+  (firstName: string, lastName: string): string;
+}
+
+// Example usage of the printTeacher function
+const fullName = printTeacher("John", "Doe");
+console.log(fullName); // This will print "J. Doe" to the console
+
+// Additional Example:
+const anotherFullName: printTeacherFunction = (first, last) => printTeacher(first, last);
+console.log(anotherFullName("Alice", "Smith")); // This will print "A. Smith" to the console
+
